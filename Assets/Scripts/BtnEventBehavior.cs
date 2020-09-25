@@ -32,6 +32,11 @@ public class BtnEventBehavior : MonoBehaviour
         SceneManager.LoadScene("StartScene");
     }
 
+    public void ForceLossBtnBehavior()
+    {
+        SceneManager.LoadScene("GameOverScene");
+    }
+
     public void ExitBtnBehavior()
     {
         Application.Quit();
