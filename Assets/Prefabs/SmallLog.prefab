@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5396042685062987814}
   - component: {fileID: 6837589528481628289}
   - component: {fileID: 5056929301151921857}
+  - component: {fileID: 860776556951173032}
   m_Layer: 0
   m_Name: SmallLog
   m_TagString: floating
@@ -95,7 +96,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86cbbac7fae84614196a822dccd9c6d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalSpeed: 5
-  horizontalBoundary: 7
+  horizontalSpeed: 2.5
+  horizontalBoundary: 6.5
+  horizontalReset: 8.5
   verticalPos: 2.5
   isMovingLeft: 1
+--- !u!61 &860776556951173032
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4448977321803157639}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.341772, y: 0.7468355}
+    newSize: {x: 2.341772, y: 0.7468355}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.3, y: 1}
+  m_EdgeRadius: 0

@@ -13,9 +13,12 @@ public class PlayerController : MonoBehaviour
     public Button moveDownBtn;
     public Button moveLeftBtn;
     public Button moveRightBtn;
+    // Audio
+    public AudioSource moveClip;
 
     private static readonly float cooldown = 0.25f;
     public bool _isCoolingDown = false;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -31,14 +34,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.position += new Vector3(PlayerStats.horizontalSpeed * Time.deltaTime, 0);
+
     }
 
     private void _MoveRight()
     {
         if (!_isCoolingDown && !PlayerStats._isReseting)
         {
-            //PlayerStats.Score += 10;
+            
             frogSprite.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
             StartCoroutine(Move(new Vector3(1, 0, 0)));
         }
@@ -48,7 +52,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!_isCoolingDown && !PlayerStats._isReseting)
         {
-            //PlayerStats.Score += 10;
+            
             frogSprite.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -90));
             StartCoroutine(Move(new Vector3(-1, 0, 0)));
         }
@@ -58,7 +62,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!_isCoolingDown && !PlayerStats._isReseting)
         {
-            //PlayerStats.Score += 10;
+            PlayerStats.horizontalSpeed = 0f;
             frogSprite.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -180));
             StartCoroutine(Move(new Vector3(0, 1, 0)));
         }
@@ -68,7 +72,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!_isCoolingDown && !PlayerStats._isReseting)
         {
-            //PlayerStats.Score += 10;
+            PlayerStats.horizontalSpeed = 0f;
             frogSprite.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
             StartCoroutine(Move(new Vector3(0, -1, 0)));
         }
@@ -79,6 +83,8 @@ public class PlayerController : MonoBehaviour
     {
         _isCoolingDown = true;
         frogSprite.GetComponent<Animator>().SetTrigger("move");
+        moveClip.volume = 0.5f;
+        moveClip.Play();
 
         var start = transform.position;
         var end = start + delta;
@@ -101,6 +107,11 @@ public class PlayerController : MonoBehaviour
         }
         _isCoolingDown = false;
         
+        if(PlayerStats.horizontalSpeed == 0 && PlayerStats._inRiver)
+        {
+            PlayerStats._isDead = true;
+        }
+
     }
 
 }

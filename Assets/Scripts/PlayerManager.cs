@@ -13,12 +13,16 @@ public class PlayerManager : MonoBehaviour
     public TextMeshProUGUI TimerTMP;
 
     public bool _isDead = false;
+    public bool _inRiver = false;
+    public bool _isLanding = false;
     public bool _isReseting = false;
     public int Lives;
     public int Score;
     public int Timer;
     public int ResetTime;
+    public int frogsSaved;
     public float Threshold;
+    public float horizontalSpeed = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -71,15 +75,59 @@ public class PlayerManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "vehicle")
+        switch(collision.tag)
         {
-            Debug.Log("I Hit A Vehicle!");
-            _isDead = true;
+            case "vehicle":
+                Debug.Log("I Hit A Vehicle!");
+                _isDead = true;
+                break;
+            case "floating":
+                Debug.Log("Im On Floating Object!");
+                _isLanding = true;
+                if (collision.GetComponent<ObstacleController>().isMovingLeft == true)
+                {
+                    horizontalSpeed = -collision.GetComponent<ObstacleController>().horizontalSpeed;
+                }
+                else
+                {
+                    horizontalSpeed = collision.GetComponent<ObstacleController>().horizontalSpeed;
+                }
+                break;
+            case "river":
+                Debug.Log("I Am In The River!");
+                _inRiver = true;
+                _isLanding = false;
+                break;
+            case "Finish":
+                FrogIsHome(collision.gameObject);
+                Score += 50;
+                frogsSaved++;
+                if(frogsSaved > 0)
+                {
+                    Score += 1000;
+
+                    SceneManager.LoadScene("StartScene");
+                }
+                break;
         }
-        if(collision.tag == "river")
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        switch(collision.tag)
         {
-            Debug.Log("I Drowned in the River!");
-            _isDead = true;
+            case "floating":
+                Debug.Log("Im Not On Floating Object!");
+                if (_isLanding == false)
+                {
+                    horizontalSpeed = 0;
+                }
+                _isLanding = false;
+                break;
+            case "river":
+                Debug.Log("I Am NOT In The River!");
+                _inRiver = false;
+                break;
         }
     }
 
@@ -88,7 +136,15 @@ public class PlayerManager : MonoBehaviour
         _isReseting = true;
         Lives -= 1;
         Timer = ResetTime;
+        Threshold = 0;
         _isDead = false;
     }
 
+    void FrogIsHome(GameObject go)
+    {
+        _isReseting = true;
+        Timer = ResetTime;
+        Threshold = 0;
+        go.GetComponent<Goal>().ShowFrog(true);
+    }
 }

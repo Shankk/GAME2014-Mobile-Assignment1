@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8659854031119134573}
   - component: {fileID: 9081592774892579182}
+  - component: {fileID: 1019815889}
   m_Layer: 0
   m_Name: Turtlepack3
   m_TagString: floating
@@ -47,7 +48,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.045776367, y: 0}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -58,8 +59,25 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.9836311, y: 1}
+  m_Size: {x: 3, y: 1.1}
   m_EdgeRadius: 0
+--- !u!114 &1019815889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8329218313304214666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86cbbac7fae84614196a822dccd9c6d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalSpeed: 1.5
+  horizontalBoundary: 6.5
+  horizontalReset: 8.5
+  verticalPos: 1.5
+  isMovingLeft: 0
 --- !u!1001 &2885928457518209070
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -115,7 +133,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: BotTurtle_0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6392023901590017217, guid: fc8492b0aaa539944813da421989d9c0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fc8492b0aaa539944813da421989d9c0, type: 3}
 --- !u!4 &1196507844518978309 stripped
 Transform:
@@ -189,7 +208,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: BotTurtle_1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6392023901590017217, guid: fc8492b0aaa539944813da421989d9c0, type: 3}
+    - {fileID: 6392023901590017217, guid: fc8492b0aaa539944813da421989d9c0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fc8492b0aaa539944813da421989d9c0, type: 3}
 --- !u!4 &105542579820091397 stripped
 Transform:
@@ -263,7 +284,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BotTurtle_2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6392023901590017217, guid: fc8492b0aaa539944813da421989d9c0, type: 3}
+    - {fileID: 6392023901590017217, guid: fc8492b0aaa539944813da421989d9c0, type: 3}
+    - {fileID: 6392023901590017217, guid: fc8492b0aaa539944813da421989d9c0, type: 3}
+    - {fileID: 6392023901590017217, guid: fc8492b0aaa539944813da421989d9c0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fc8492b0aaa539944813da421989d9c0, type: 3}
 --- !u!4 &105542578615581945 stripped
 Transform:

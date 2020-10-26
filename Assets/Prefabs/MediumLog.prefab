@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3658762620443177629}
   - component: {fileID: 6454909435777036725}
   - component: {fileID: 149562645995187017}
+  - component: {fileID: 4833027376080546207}
   m_Layer: 0
   m_Name: MediumLog
   m_TagString: floating
@@ -97,5 +98,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalSpeed: 3
   horizontalBoundary: 7
+  horizontalReset: 9
   verticalPos: 5.5
   isMovingLeft: 1
+--- !u!61 &4833027376080546207
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771225703747627017}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.455696, y: 0.7468355}
+    newSize: {x: 3.455696, y: 0.7468355}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.5, y: 1}
+  m_EdgeRadius: 0

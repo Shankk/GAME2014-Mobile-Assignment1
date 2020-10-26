@@ -17,6 +17,7 @@ public class ObstacleController : MonoBehaviour
 {
     public float horizontalSpeed;
     public float horizontalBoundary;
+    public float horizontalReset;
     public float verticalPos;
     public bool isMovingLeft;
 
@@ -31,11 +32,11 @@ public class ObstacleController : MonoBehaviour
     {
         if(isMovingLeft)
         {
-            transform.position = new Vector3(horizontalBoundary, verticalPos);
+            transform.position = new Vector3(horizontalReset, verticalPos);
         }
         else
         {
-            transform.position = new Vector3(-horizontalBoundary, verticalPos);
+            transform.position = new Vector3(-horizontalReset, verticalPos);
         }
     }
 
