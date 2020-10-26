@@ -102,7 +102,7 @@ public class PlayerManager : MonoBehaviour
                 FrogIsHome(collision.gameObject);
                 Score += 50;
                 frogsSaved++;
-                if(frogsSaved > 0)
+                if(frogsSaved >= 5)
                 {
                     Score += 1000;
 

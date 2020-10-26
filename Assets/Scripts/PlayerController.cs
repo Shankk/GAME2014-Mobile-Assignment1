@@ -35,7 +35,12 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         transform.position += new Vector3(PlayerStats.horizontalSpeed * Time.deltaTime, 0);
-
+        var currentPos = transform.position;
+        if (currentPos.x > 5 || currentPos.x < -5 || currentPos.y > 7 || currentPos.y < -9)
+        {
+            PlayerStats._isReseting = true;
+            PlayerStats.horizontalSpeed = 0;
+        }
     }
 
     private void _MoveRight()
